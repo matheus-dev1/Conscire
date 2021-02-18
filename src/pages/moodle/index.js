@@ -75,7 +75,7 @@ function Moodle() {
             </div>
 
         <div className="container">
-            <div className="row">
+            <div className="row" >
 
             <CardMoodle 
             linkAdrress={"https://www.ted.com/talks/rod_phillips_a_brief_history_of_alcohol/transcript?language=pt-br#t-8168"}

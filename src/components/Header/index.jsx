@@ -5,8 +5,7 @@ import './styles.css'
 
 function Header() {
     return(
-            <div className="container-fluid">
-                <nav className="navbar navbar-expand-lg navbar-dark">
+                <nav className="navbar navbar-expand-lg navbar-dark fixed-top JustifyHeader">
                     <a className="navbar-brand" href="">
                         <img className="logo" src={require("../../assets/images/logo.png").default} alt="Conscire" />
                     </a>
@@ -33,12 +32,11 @@ function Header() {
                         <a className="nav-link" href="">Cadastre-se</a>
                     </li>
                     </ul>
-                        <button className="btn btn-warning text-white" type="submit">
+                        <button className="btn btn-warning text-white btn-lg" type="submit">
                             <a className="text-light" href="#">Login</a>
                         </button>
                 </div>
             </nav>
-        </div>
     )
 }
 
