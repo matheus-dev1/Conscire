@@ -13,6 +13,8 @@ import Audit from './pages/Audit'
 // Ok
 import ResultadoAudit from './pages/ResultadoAudit'
 
+import Quiz from './pages/Quiz'
+
 import Header from './components/Header'
 import Footer from './components/Footer'
 
@@ -22,7 +24,7 @@ import './App.css'
 function App() {
   return (
     <div className="App">
-      <Index />
+      <Quiz />
     </div>
   );
 }

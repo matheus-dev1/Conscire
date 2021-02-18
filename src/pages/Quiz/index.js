@@ -4,12 +4,12 @@ import Head from 'next/head'
 import { motion } from 'framer-motion'
 import { useRouter } from 'next/router'
 
-import db from '../db.json'
-import Widget from '../src/components/Widget'
-import QuizBackground from '../src/components/QuizBackground'
-import GitHubCorner from '../src/components/GitHubCorner'
-import Input from '../src/components/Input'
-import Button from '../src/components/Button'
+import db from './db.json'
+import Widget from '../../components/Widget'
+import QuizBackground from '../../components/QuizBackground'
+import GitHubCorner from '../../components/GitHubCorner'
+import Input from '../../components/input'
+import Button from '../../components/Button'
 
 const Title = styled.h1`
   font-size: 50px;
@@ -92,7 +92,6 @@ export default function Home() {
         </Widget>
         
       </QuizContainer>
-      <GitHubCorner projectUrl="https://github.com/inesdev"/>
     </QuizBackground>
   );
 }
