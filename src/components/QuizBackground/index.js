@@ -2,11 +2,15 @@ import styled from 'styled-components';
 
 // background-color: ${({ theme }) => theme.colors.mainBg};
 // linear-gradient(transparent, ${({ theme }) => theme.colors.mainBg}),
+
+// background-image: url(${({ backgroundImage }) => backgroundImage});
+
+// url(${({ backgroundImage }) => backgroundImage});
 const QuizBackground = styled.div`
   width: 100%;
   background-size: cover;
   background-position: center;
-  background-image: url(${({ backgroundImage }) => backgroundImage});
+  
   
   flex: 1;
   @media screen and (max-width: 500px) {
@@ -17,7 +21,7 @@ const QuizBackground = styled.div`
     background-position: center;
       background-image:
         
-        url(${({ backgroundImage }) => backgroundImage});
+        
       display: block;
       width: 100%;
       height: 210px;

@@ -13,7 +13,8 @@ function Index() {
         <Header />
         <div class="mid">
             <video autoplay muted loop>
-                <source className="embed-responsive" src={require('../../assets/images/video-index.mp4').default} type="video/mp4"/>
+                <source className="embed-responsive"  type="video/mp4"/>
+                {/* src={require('../../assets/images/video-index.mp4').default} */}
             </video>
             <div class="hero text-center">
                 <h2 class= "text-warning display-3 font-weight-bold">Tomar um gole de <br/> consciência?<br/></h2>

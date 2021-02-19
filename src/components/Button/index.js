@@ -1,10 +1,12 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
+// background-color: ${({ theme }) => theme.colors.secondary};
+// color: ${({ theme }) => theme.colors.contrastText};
+// border-radius: ${({ theme }) => theme.borderRadius};
+
 const Button = styled.button`
-  background-color: ${({ theme }) => theme.colors.secondary};
-  color: ${({ theme }) => theme.colors.contrastText};
-  border-radius: ${({ theme }) => theme.borderRadius};
+
   border: 0;
   width: 100%;
   padding: 10px 16px;
