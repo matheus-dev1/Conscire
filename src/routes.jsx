@@ -24,6 +24,7 @@ function Routes(){
             <Route exact path="/login" component={Login} />
             {/* Ok */}
             <Route exact path="/moodle" component={Moodle} />
+            {/* Ok */}
             <Route exact path="/quiz" component={Quiz} />
         </Switch>
     );

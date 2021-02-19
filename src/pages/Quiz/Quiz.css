@@ -9,24 +9,17 @@
 }
 
 .App-header {
-    background-color: #222;
+    background-color: #744D8C;
     height: 150px;
     padding: 20px;
     color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .App-intro {
     font-size: large;
-}
-
-@keyframes App-logo-spin {
-    from {
-        transform: rotate(0deg);
-    }
-
-    to {
-        transform: rotate(360deg);
-    }
 }
 
 @keyframes delayFadeOutUp {
@@ -41,7 +34,7 @@
     }
 }
 
-section {
+.sectionConfig {
     margin: 20px auto;
     width: 600px;
 }
@@ -98,8 +91,8 @@ section {
     margin: 0 10px;
 }
 
-button {
-    width: 160px;
+.buttonConfig {
+    width: 180px;
     border: none;
     font-family: inherit;
     font-size: inherit;
@@ -120,7 +113,7 @@ button {
 }
 
     .quizSection .answers button:before {
-        content: 'Incorrect!';
+        content: 'Incorreta!';
         top: 100%;
         background: #e96a6a;
         color: #a33a3a;
@@ -130,7 +123,7 @@ button {
     }
 
     .quizSection .answers button:after {
-        content: 'Correct!';
+        content: 'Correta!';
         top: -98%;
         background: #7aca7c;
         color: #358337;

@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './Quiz.css';
 
+import Header from '../../components/Header'
+import Footer from '../../components/Footer'
+
 // eslint-disable-next-line import/no-webpack-loader-syntax
 import quizJson from './quiz.json'
 // eslint-disable-next-line import/no-webpack-loader-syntax
@@ -25,11 +28,12 @@ class Quiz extends React.Component {
         return (
             <div className="App">
                 <div className="App-header">
-                    <img src={logo} className="App-logo" alt="logo" />
+                    <Header />
                     <h2 style={{ fontFamily: 'cursive', fontSize: '1.8em' }}>
                         {this.state.quiz.title}
-                    </h2>
+                </h2>
                 </div>
+
                 
                 {this.state.activeView === 'quizOverview' &&
                     <QuizDescription
@@ -134,12 +138,12 @@ class QuizDescription extends React.Component {
         let htmlDescription = function () { return { __html: quiz.introduction }; };
 
         return (
-            <section className="overviewSection">
+            <section className="overviewSection sectionConfig">
                 <div className="imageWrapper">
                     <img src={image.filePath} alt={image.altText} />
                 </div>
                 <div className="description" dangerouslySetInnerHTML={htmlDescription()} />
-                <button onClick={this.props.showQuizQuestion}>Begin</button>
+                <button className="buttonConfig" onClick={this.props.showQuizQuestion}>Começar</button>
             </section>
         );
     };
@@ -153,12 +157,12 @@ class Quizinator extends React.Component {
                 return { __html: question.question };
             },
             answerButtons = question.answers.map((answer, i) =>
-                <p key={i}><button className={answer.answer} onClick={this.handleClick.bind(this, i)} disabled={this.props.buttonsDisabled}>{answer}</button></p>
+                <p key={i}><button className={answer.answer + " buttonConfig"} onClick={this.handleClick.bind(this, i)} disabled={this.props.buttonsDisabled}>{answer}</button></p>
         );
 
         return (
-            <section className={'quizSection' + (this.props.buttonsDisabled ? ' transitionOut' : '')}>
-                <div className="questionNumber">Question {this.props.currentQuestionIndex + 1} / {quiz.questions.length}</div>
+            <section className={'sectionConfig quizSection' + (this.props.buttonsDisabled ? ' transitionOut' : '')}>
+                <div className="questionNumber">Pergunta {this.props.currentQuestionIndex + 1} / {quiz.questions.length}</div>
                 <hr />
                 <div className="question">
                     <div dangerouslySetInnerHTML={htmlQuestion()} />
@@ -209,10 +213,10 @@ class QuizResults extends React.Component {
             let explanationHtml = function () { return { __html: item.explanation }; };
             let response =
                 (item.isCorrect === true) ?
-                    "You correctly answered " :
+                    "Você respondeu corretamente " :
                 (item.isCorrect === false) ? 
-                    `You answered ${item.answers[item.value - 1]}. The correct answer is ` :
-                    "The correct answer is ";
+                    `Sua resposta ${item.answers[item.value - 1]}. A resposta correta é ` :
+                    "A resposta correta é ";
 
             return (
                 <li className={"result" + (item.isCorrect ? " correct" : " incorrect")} key={i}>
@@ -228,10 +232,10 @@ class QuizResults extends React.Component {
         });
 
         return (
-            <section className="resultsSection">
-                <h2>Results</h2>
+            <section className="resultsSection sectionConfig">
+                <h2>Resultado</h2>
                 <div className="scoring">
-                    You got <em>{numCorrect}</em> correct scoring a total of <b>{score}</b> out of a possible <b>{possibleScore}</b>.
+                Você acertou <em>{numCorrect}</em> perguntas pontuação correta em um total de <b>{score}</b> possíveis. <b>{possibleScore}</b>.
                 </div>
                 <div className="badge" style={badgeStyle}>{score}</div>
                 <ol>{results}</ol>
