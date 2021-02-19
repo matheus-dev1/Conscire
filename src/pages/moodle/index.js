@@ -7,72 +7,108 @@ import './styles.css'
 import CardMoodle from '../../components/CardMoodle'
 
 function Moodle() {
+
+    
+const showNavbar = (toggleId, navId, bodyId, headerId) =>{
+    const toggle = document.getElementById(toggleId),
+    nav = document.getElementById(navId),
+    bodypd = document.getElementById(bodyId),
+    headerpd = document.getElementById(headerId)
+
+   
+    if(toggle && nav && bodypd && headerpd){
+        toggle.addEventListener('click', ()=>{
+          
+            nav.classList.toggle('show')
+          
+            toggle.classList.toggle('bx-x')
+        
+            bodypd.classList.toggle('body-pd')
+     
+            headerpd.classList.toggle('body-pd')
+        })
+    }
+}
+
+showNavbar('header-toggle','nav-bar','body-pd','header')
+
+
+const linkColor = document.querySelectorAll('.nav__link')
+
+function colorLink(){
+    if(linkColor){
+        linkColor.forEach(l=> l.classList.remove('active'))
+        this.classList.add('active')
+    }
+}
+linkColor.forEach(l=> l.addEventListener('click', colorLink))
+
     return (
         <>
-            {/* Barra de Navegacao */}
-            <header className="header" id="header">
-                <div className="header__toggle">
-                    <i className='bx bx-menu' id="header-toggle"></i>
+        <body id="body-pd">
+            <header class="header" id="header">
+                <div class="header__toggle">
+                    <i class='bx bx-menu' id="header-toggle"></i>
                 </div>
 
-                <div className="header__img">
+                <div class="header__img">
                     <img src="" alt=""/>
                 </div>
             </header>
 
-            <div className="l-navbar" id="nav-bar">
-                <nav className="nav">
-                    <div>
-                        <a href="#" className="nav__logo">
-                            <i className='bx bx-layer nav__logo-icon'></i>
-                            <span className="nav__logo-name">Conscire</span>
+        <div class="l-navbar" id="nav-bar">
+            <nav class="nav">
+                <div>
+                    <a href="#" class="nav__logo">
+                        <i class='bx bx-layer nav__logo-icon'></i>
+                        <span class="nav__logo-name">Conscire</span>
+                    </a>
+
+                    <div class="nav__list">
+                        <a href="#" class="nav__link active">
+                        <i class='bx bx-grid-alt nav__icon' ></i>
+                            <span class="nav__name">Painel Geral</span>
                         </a>
 
-                    <div className="nav__list">
-                        <a href="#" className="nav__link active">
-                            <i className='bx bx-grid-alt nav__icon' ></i>
-                            <span className="nav__name">Painel Geral</span>
+                        <a href="#" class="nav__link">
+                            <i class='bx bx-user nav__icon' ></i>
+                            <span class="nav__name">Perfil</span>
+                        </a>
+                        
+                        <a href="." class="nav__link">
+                            <i class='bx bx-brain nav__icon' ></i>
+                            <span class="nav__name">Quiz</span>
                         </a>
 
-                        <a href="#" className="nav__link">
-                            <i className='bx bx-user nav__icon' ></i>
-                            <span className="nav__name">Perfil</span>
-                        </a>
-                    
-                        <a href="#" className="nav__link">
-                            <i className='bx bx-brain nav__icon' ></i>
-                            <span className="nav__name">Quiz</span>
+                        <a href="" class="nav__link">
+                            <i class='bx bx-brain nav__icon' ></i>
+                            <span class="nav__name">História das bedidas</span>
                         </a>
 
-                        <a href="#" className="nav__link">
-                            <i className='bx bx-brain nav__icon' ></i>
-                            <span className="nav__name">História das bedidas</span>
+                        <a href="./audit.php" class="nav__link">
+                            <i class='bx bx-brain nav__icon' ></i>
+                            <span class="nav__name">Teste Audit</span>
                         </a>
 
-                        <a href="#" className="nav__link">
-                            <i className='bx bx-brain nav__icon' ></i>
-                            <span className="nav__name">Teste Audit</span>
+                        <a href="#" class="nav__link">
+                            <i class='bx bx-trophy nav__icon' ></i>
+                            <span class="nav__name">Resultados</span>
                         </a>
 
-                        <a href="#" className="nav__link">
-                            <i className='bx bx-trophy nav__icon' ></i>
-                            <span className="nav__name">Resultados</span>
-                        </a>
+
                     </div>
                 </div>
 
-                <a href="#" className="nav__link">
-                    <i className='bx bx-log-out nav__icon'></i>
-                    <span className="nav__name">Sair</span>
-                </a>
+                <a href="" class="nav__link">
+                    <i class='bx bx-log-out nav__icon' ></i>
+                    <span class="nav__name">Sair</span>
 
-                <a href="#" className="nav__link">
-                    <i className='bx bx-log-out nav__icon' ></i>
-                    <span className="nav__name">Deletar conta</span>
+                <a href="" class="nav__link"/>
+                    <i class='bx bx-log-out nav__icon' ></i>
+                    <span class="nav__name"></span>
                 </a>
-                
-                </nav>
-            </div>
+            </nav>
+        </div>
 
         <div className="container">
             <div className="row" >
@@ -121,6 +157,7 @@ function Moodle() {
 
             </div>
         </div>
+    </body>
     </>
     )
 }

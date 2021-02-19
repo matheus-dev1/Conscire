@@ -10,8 +10,9 @@ import './styles.css'
 function Audit() {
     return (
         <>
-            <div class="container bg-light rounded backgroudAudit">
-                <h1 class="display-3 text-center texto-m">Teste AUDIT</h1>
+        <Header /> 
+            <div class="container bg-light rounded mt-5 pt-5 backgroudAudit">
+                <h1 class="display-3 text-center texto-m pt-5">Teste AUDIT</h1>
                 <p>O AUDIT foi desenvolvido para avaliar indivíduos quanto ao seu padrão do uso de álcool, sendo utilizado como instumento de rastreamento de comportamento de risco de consumo de bebidas alcoólicas. É importante destacar que ele não é um dignóstico completo.</p>
                 <p>O principal objetivo é alertar, não apontar possíveis vícios ou doenças.</p>
                 <p>É de extrema importância responder as 10 perguntas de acordo com seus hábitos de consumo, para que assim seja retornado um relatório mais apurado possível.</p>
@@ -111,6 +112,7 @@ function Audit() {
                 <p>&nbsp;</p>
             </form>
             </div>
+            <Footer />
         </>
     )
 }

@@ -74,6 +74,15 @@ body {
   position: relative;
 }
 
+.mid video .embed-responsive {
+  width: 100px;
+  height: 100px;
+}
+
+.mid img {
+  height: 100vh
+}
+
 .mid .hero p {
   width: 55%;
   font-size: 1.1rem;
@@ -349,8 +358,4 @@ footer {
   .footer-email-form {
     margin-top: 2rem;
   }
-}
-.video {
-  width: 30;
-  height: 10;
 }

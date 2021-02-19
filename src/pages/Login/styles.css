@@ -3,10 +3,11 @@
     border-radius: 30px;
 }
 
-img{
+.form .row .col-lg-5 img {
     border-top-left-radius: 30px;
     border-bottom-left-radius: 30px;
 }
+
 .btn1{
     border:none;
     outline:none;

@@ -2,9 +2,8 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react'
 
-//import Header from '../../components/Header'
-//import Footer from '../../components/Footer'
-import Foto from '../../assets/images/consciencia.png'
+import Header from '../../components/Header'
+import Footer from '../../components/Footer'
 
 import './styles.css'
 
@@ -12,14 +11,18 @@ function Index() {
     return (
         <>
         
+        <Header />
         <div class="mid">
-            
-            <img className="video" src={Foto}/>
-                 
-            
-             
+            {/* <video autoplay muted loop>
+                <source className="embed-responsive" src={require('../../assets/images/video-index.mp4').default} type="video/mp4"/>
+            </video> */}
+            <img class="img-fluid" src={require('../../assets/images/consciencia.png').default}/>
+            {/* <div class="hero text-center">
+                <h2 class= "text-warning display-3 font-weight-bold">Tomar um gole de <br/> consciência?<br/></h2>
+                <p class="text-light mx-auto"> Nunca foi tâo fácil!</p>
+                <a class="text-light" href="#">Iniciar</a>
+            </div>    */}
         </div>
-
    {/* <!--Um adendo: toda página está sendo feita por section. Cada Section representa uma pagina -->
      <!--pagina - Sobre ou quem somos nós --> */}
     <section id="about" class="aboutBackgourd py-5">
@@ -79,7 +82,7 @@ function Index() {
     </div>
     </div>
     </section>
-            
+            <Footer />
         </>
     )
 }
