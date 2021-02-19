@@ -2,15 +2,15 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react'
 
-import Header from '../../components/Header'
-import Footer from '../../components/Footer'
+//import Header from '../../components/Header'
+//import Footer from '../../components/Footer'
 
 import './styles.css'
 
 function Login() {
     return (
         <>
-        <Header />
+        
 <section class="form my-4 mt-5 pt-5 mx-5">
     <div class="container ">
         <div class="row roww no-gutters">
@@ -45,7 +45,7 @@ function Login() {
         </div>
     </div>
 </section>
-<Footer />
+
         </>
     )
 }

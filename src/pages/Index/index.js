@@ -2,25 +2,22 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react'
 
-import Header from '../../components/Header'
-import Footer from '../../components/Footer'
+//import Header from '../../components/Header'
+//import Footer from '../../components/Footer'
+import Foto from '../../assets/images/consciencia.png'
 
 import './styles.css'
 
 function Index() {
     return (
         <>
-        <Header />
+        
         <div class="mid">
-            <video autoplay muted loop>
-                <source className="embed-responsive"  type="video/mp4"/>
-                {/* src={require('../../assets/images/video-index.mp4').default} */}
-            </video>
-            <div class="hero text-center">
-                <h2 class= "text-warning display-3 font-weight-bold">Tomar um gole de <br/> consciência?<br/></h2>
-                <p class="text-light mx-auto"> Nunca foi tâo fácil!</p>
-                <a class="text-light" href="#">Iniciar</a>
-            </div>   
+            
+            <img className="video" src={Foto}/>
+                 
+            
+             
         </div>
 
    {/* <!--Um adendo: toda página está sendo feita por section. Cada Section representa uma pagina -->
@@ -82,7 +79,7 @@ function Index() {
     </div>
     </div>
     </section>
-            <Footer />
+            
         </>
     )
 }
