@@ -90,7 +90,7 @@ server.post('/login', (req, res) =>{
 
                     res.json({auth: true, token: token, results: results})
                 }else{
-                    res.json({auth: false, message: "Senha errada, burro"})
+                    res.json({auth: false, message: "Senha errada!"})
                 }
             })
         }else{
@@ -103,7 +103,7 @@ const verifyJWT = (req, res, next)=>{
     const token = req.headers['x-acess-token'];
 
     if(!token){
-        res.send("Você não está logado, nos dÊ o token")
+        res.send("Você não está logado")
     }else{
         jwt.verify(token, "jwtSecret", (err, decoded)=>{
             if(err){
@@ -117,7 +117,7 @@ const verifyJWT = (req, res, next)=>{
 }
 
 server.get('/isUserAuth', verifyJWT, (req, res)=>{
-    res.send("Salve, vc está autenticado")
+    res.send("Usuário autenticado com sucesso, boas vindas ao Projeto Conscire!")
 })
 
 server.get('/login', (req, res)=>{

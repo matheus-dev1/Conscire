@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from 'react'
+import React, {useState} from 'react'
+import Axios from 'axios';
 
 import './styles.css'
 
@@ -42,6 +43,29 @@ function colorLink(){
     }
 }
 linkColor.forEach(l=> l.addEventListener('click', colorLink))
+
+    const[nome, Setnome] = useState('');
+
+    const logout = ()=>{
+        const token = localStorage.getItem('token')
+        if(token != null){
+            localStorage.removeItem('token')
+            window.location.assign("http://localhost:3000/")
+        }
+    }
+
+    window.onload = ()=>{
+        Axios.get("http://localhost:5000/isUserAuth", {
+            headers:{
+                "x-acess-token": localStorage.getItem('token'),
+            },
+        }).then((response)=>{
+            if(response.data != null || response.data != undefined){
+                console.log(response.data)
+                Setnome(response.data)
+            }
+        })
+    }
 
     return (
         <>
@@ -92,16 +116,16 @@ linkColor.forEach(l=> l.addEventListener('click', colorLink))
 
                         <a href="#" class="nav__link">
                             <i class='bx bx-trophy nav__icon' ></i>
-                            <span class="nav__name">Resultados</span>
+                            <span class="nav__name" >Resultados</span>
                         </a>
 
 
                     </div>
                 </div>
 
-                <a href="" class="nav__link">
+                <a href="#" class="nav__link">
                     <i class='bx bx-log-out nav__icon' ></i>
-                    <span class="nav__name">Sair</span>
+                    <span class="nav__name" onClick={logout} >Sair</span>
 
                 <a href="" class="nav__link"/>
                     <i class='bx bx-log-out nav__icon' ></i>
@@ -111,6 +135,7 @@ linkColor.forEach(l=> l.addEventListener('click', colorLink))
         </div>
 
         <div className="container">
+            <h3>{nome}</h3>
             <div className="row" >
 
             <CardMoodle 
