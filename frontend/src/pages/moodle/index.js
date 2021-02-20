@@ -1,6 +1,8 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from 'react'
+
+import React, {useState} from 'react;
+
 
 import './styles.css'
 
@@ -43,6 +45,25 @@ function colorLink(){
     }
 }
 linkColor.forEach(l=> l.addEventListener('click', colorLink))
+
+const[nome, Setnome] = useState('');
+
+    const logout = ()=>{
+        const token = localStorage.getItem('token')
+        const email = localStorage.getItem('email')
+        if(token !== null && email !== null){
+            localStorage.removeItem('token')
+            localStorage.removeItem('email')
+            window.location.assign("http://localhost:3000/")
+        }
+    }
+
+    window.onload = ()=>{
+       const email = localStorage.getItem('email')
+       if(email != null){
+           Setnome(email)
+       }
+    }
 
     return (
         <>
@@ -96,7 +117,7 @@ linkColor.forEach(l=> l.addEventListener('click', colorLink))
 
                 <Link to="/" className="nav__link">
                     <i className='bx bx-log-out nav__icon' ></i>
-                    <span className="nav__name">Sair</span>
+                    <span className="nav__name" onClick={logout}>Sair</span>
                 </Link>
 
                 <Link to="/moodle" className="nav__link">
@@ -108,7 +129,7 @@ linkColor.forEach(l=> l.addEventListener('click', colorLink))
 
         <div className="container">
             <div className="row" >
-
+		<h5>Boas vindas usuário, este é o seu email cadastrado em nossa plataforma: {nome}</h5>
             <CardMoodle 
             linkAdrress={"https://www.ted.com/talks/rod_phillips_a_brief_history_of_alcohol/transcript?language=pt-br#t-8168"}
             image={require("../../assets/images/historia-das-bebidas.png").default}
