@@ -1,3 +1,5 @@
+// Este @ts-check serve para poder ver parte da documentacao.
+//@ts-check
 import React from 'react'
 import {useEffect, useState} from 'react'; 
 import Header from '../../components/Header'
@@ -19,11 +21,11 @@ function ResultadoAudit() {
     return (
         <>
             <Header />
-                <div class="text-center text-dark py-3"> <h4 > Resultado Audit </h4> 
+                <div className="text-center text-dark py-3"> <h4 > Resultado Audit </h4> 
                     <div >          
                         {erros.map((item) =>{
                             return(
-                            statusErro &&  <div class="alert alert-danger mx-auto mt-4 w-75" role="alert">{item}</div>
+                            statusErro &&  <div className="alert alert-danger mx-auto mt-4 w-75" role="alert">{item}</div>
                             )            
                         })}
                     </div>
