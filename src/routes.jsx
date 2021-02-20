@@ -8,6 +8,7 @@ import Contato from './pages/contato';
 import Login from './pages/Login';
 import Moodle from './pages/moodle';
 import Quiz from './pages/Quiz';
+import resultadoAudit from './pages/ResultadoAudit';
 
 export const isAuthenticated = () =>  {
     if (localStorage.getItem('token')) {
@@ -46,6 +47,7 @@ function Routes(){
                 <Route exact path="/login" component={Login} />
                 {/* Ok */}
                 <PrivateRoute exact path="/moodle" component={Moodle} />
+                <PrivateRoute exact path="/resultadoAudit" component={resultadoAudit} />
                 <PrivateRoute exact path="/quiz" component={Quiz} />
             </Switch>
         </BrowserRouter>

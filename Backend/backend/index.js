@@ -242,10 +242,41 @@ server.put('/audit/atualiza', (req, res) =>{
         const newLocal = "Resultado do teste Audit foi atualizado";
         res.json({auth: true, message: newLocal})
        
-    })
-    
+    }) 
  
 })
+
+server.post('/audit/retorna', function(req,res){ 
+    
+	const email = req.body.email;
+	console.log(email)
+
+    const sql = `SELECT AUDIT FROM login WHERE email='${email}'`;
+    database.query(sql, (error, resultado) =>{
+        if(error){
+            console.log(error)
+        }
+        console.log(resultado[0].AUDIT)
+        const audit = parseInt(resultado[0].AUDIT)
+        if (audit <= 7){
+            const message = "ZONA I: Pessoas que se localizam na ZONA I geralmente fazem uso de baixo risco de álcool ou são abstêmias. De uma forma geral, são pessoas que bebem menos de duas doses-padrão por dia ou que não ultrapassam a quantidade de cinco doses-padrão em uma única ocasião. A intervenção adequada nesse nível é a educação em saúde, para que haja a manutenção do padrão de uso atual."
+            res.json({message: message});
+        }
+        else if (audit >= 8 && audit <= 15){
+            const message = "ZONA II: Pessoas que pontuam nessa zona são consideradas usuários de risco; são pessoas que fazem uso acima de duas doses-padrão todos os dias ou mais de cinco doses-padrão numa única ocasião, porém não apresentam nenhum problema decorrente disso. A intervenção adequada nesse nível é a Orientação Básica sobre o uso de baixo risco e sobre os possíveis riscos orgânicos, psicológicos ou sociais que o usuário pode apresentar se mantiver esse padrão de uso."
+            res.json({message: message});
+        }
+        else if (audit >= 16  && audit <= 19 ){
+            const message = "ZONA III: Nessa zona de risco estão os usuários com padrão de uso nocivo; ou seja, pessoas que consomem álcool em quantidade e frequência acima dos padrões de baixo risco e já apresentam problemas decorrentes do uso de álcool. Por outro lado, essas pessoas não apresentam a quantidade de sintomas necessários para o diagnóstico de dependência. A intervenção adequada nesse nível é a utilização da técnica de Intervenção Breve e Monitoramento."
+            res.json({message: message});
+        }
+            
+        else if (audit  >= 20){
+            const message = 'ZONA IV: Pessoas que se encontram nesse nível apresentam grande chance de ter um diagnóstico de dependência. Nesse caso, é preciso fazer uma avaliação mais cuidadosa e, se confirmado o diagnóstico, deve-se motivar o usuário a procurar atendimento especializado para acompanhamento e encaminhá-lo ao serviço adequado. Lista de Caps-AD (Centros de Atenção Psicossocial em SP):https://www.prefeitura.sp.gov.br/cidade/secretarias/saude/atencao_basica/index.php?p=204204'
+            res.json({message: message});
+        }             
+    })            
+});
 
 
 
