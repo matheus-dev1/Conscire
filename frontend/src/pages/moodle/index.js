@@ -6,9 +6,10 @@ import './styles.css'
 
 import CardMoodle from '../../components/CardMoodle'
 
+import { Link } from 'react-router-dom'
+
 function Moodle() {
 
-    
 const showNavbar = (toggleId, navId, bodyId, headerId) =>{
     const toggle = document.getElementById(toggleId),
     nav = document.getElementById(navId),
@@ -47,66 +48,61 @@ linkColor.forEach(l=> l.addEventListener('click', colorLink))
         <>
         <body id="body-pd">
             <header class="header" id="header">
-                <div class="header__toggle">
-                    <i class='bx bx-menu' id="header-toggle"></i>
+                <div className="header__toggle">
+                    <i className='bx bx-menu' id="header-toggle"></i>
                 </div>
 
-                <div class="header__img">
+                <div className="header__img">
                     <img src="" alt=""/>
                 </div>
             </header>
 
-        <div class="l-navbar" id="nav-bar">
-            <nav class="nav">
+        <div className="l-navbar" id="nav-bar">
+            <nav className="nav">
                 <div>
-                    <a href="#" class="nav__logo">
-                        <i class='bx bx-layer nav__logo-icon'></i>
-                        <span class="nav__logo-name">Conscire</span>
-                    </a>
+                    <Link to="/" className="nav__logo">
+                        <i className='bx bx-layer nav__logo-icon'></i>
+                        <span className="nav__logo-name">Conscire</span>
+                    </Link>
 
-                    <div class="nav__list">
-                        <a href="#" class="nav__link active">
-                        <i class='bx bx-grid-alt nav__icon' ></i>
-                            <span class="nav__name">Painel Geral</span>
-                        </a>
+                    <div className="nav__list">
+                        <Link to="/moodle" className="nav__link active">
+                        <i className='bx bx-grid-alt nav__icon' ></i>
+                            <span className="nav__name">Painel Geral</span>
+                        </Link>
 
-                        <a href="#" class="nav__link">
-                            <i class='bx bx-user nav__icon' ></i>
-                            <span class="nav__name">Perfil</span>
-                        </a>
+                        <Link to="/moodle" className="nav__link">
+                            <i className='bx bx-user nav__icon' ></i>
+                            <span className="nav__name">Perfil</span>
+                        </Link>
                         
-                        <a href="." class="nav__link">
-                            <i class='bx bx-brain nav__icon' ></i>
-                            <span class="nav__name">Quiz</span>
-                        </a>
+                        <Link to="/quiz" className="nav__link">
+                            <i className='bx bx-brain nav__icon' ></i>
+                            <span className="nav__name">Quiz</span>
+                        </Link>
 
-                        <a href="" class="nav__link">
-                            <i class='bx bx-brain nav__icon' ></i>
-                            <span class="nav__name">História das bedidas</span>
-                        </a>
+                        <Link to="/audit" className="nav__link">
+                            <i className='bx bx-brain nav__icon' ></i>
+                            <span className="nav__name">Teste Audit</span>
+                        </Link>
 
-                        <a href="./audit.php" class="nav__link">
-                            <i class='bx bx-brain nav__icon' ></i>
-                            <span class="nav__name">Teste Audit</span>
-                        </a>
-
-                        <a href="#" class="nav__link">
-                            <i class='bx bx-trophy nav__icon' ></i>
-                            <span class="nav__name">Resultados</span>
-                        </a>
-
+                        <Link to="/resultado_audit" className="nav__link">
+                            <i className='bx bx-trophy nav__icon' ></i>
+                            <span className="nav__name">Resultado Audit</span>
+                        </Link>
 
                     </div>
                 </div>
 
-                <a href="" class="nav__link">
-                    <i class='bx bx-log-out nav__icon' ></i>
-                    <span class="nav__name">Sair</span>
+                <Link to="/" className="nav__link">
+                    <i className='bx bx-log-out nav__icon' ></i>
+                    <span className="nav__name">Sair</span>
+                </Link>
 
-                <a href="" class="nav__link"/>
-                    <i class='bx bx-log-out nav__icon' ></i>
-                    <span class="nav__name"></span>
-                </a>
+                <Link to="/moodle" className="nav__link">
+                    <i className='bx bx-log-out nav__icon' ></i>
+                    <span className="nav__name">Deletar Conta</span>
+                </Link>
             </nav>
         </div>
 

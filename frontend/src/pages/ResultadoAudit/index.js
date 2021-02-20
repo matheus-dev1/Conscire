@@ -10,6 +10,7 @@ import './styles.css'
 function ResultadoAudit() {
     return (
         <>
+        <Header />
         </>
     )
 }

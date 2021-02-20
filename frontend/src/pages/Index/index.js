@@ -4,34 +4,26 @@ import React from 'react'
 
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
+import { Link } from 'react-router-dom'
 
 import './styles.css'
 
 function Index() {
     return (
         <>
-        
         <Header />
-        <div class="mid">
-            {/* <video autoplay muted loop>
-                <source className="embed-responsive" src={require('../../assets/images/video-index.mp4').default} type="video/mp4"/>
-            </video> */}
-            <img class="img-fluid" src={require('../../assets/images/consciencia.png').default}/>
-            {/* <div class="hero text-center">
-                <h2 class= "text-warning display-3 font-weight-bold">Tomar um gole de <br/> consciência?<br/></h2>
-                <p class="text-light mx-auto"> Nunca foi tâo fácil!</p>
-                <a class="text-light" href="#">Iniciar</a>
-            </div>    */}
-        </div>
-   {/* <!--Um adendo: toda página está sendo feita por section. Cada Section representa uma pagina -->
-     <!--pagina - Sobre ou quem somos nós --> */}
+        <section id="img">
+          <div class="mid">
+              <img class="img-fluid" src={require('../../assets/images/consciencia.png').default}/>
+          </div>
+        </section>
     <section id="about" class="aboutBackgourd py-5">
       <div class="row align-items-center container my-5 mx-auto foo">
         <div class="text col-lg-6 col-md-6 col-12 w-50 pt-5 pb-5">
           <h6 class="titleSection">CONSCIRE</h6>
           <h2 class="text-light"> Porque prevenção é o melhor caminho</h2>
           <p class="text-light">Elaborado através da tecnologia, Conscire tem o objetivo de atuar na prevenção ao uso precoce de bebidas alcoólicas por jovens.</p>
-          <a class="btnSection" href="#">Conscientize-se</a>
+          <Link class="btnSection" to="/cadastro">Conscientize-se</Link>
         </div>
         <div class="img col-lg-6 col-md-6 col-12 w-50">
           <img class="img-fluid" src={require('../../assets/images/conscire-index-section-2.svg').default}/>
@@ -42,7 +34,7 @@ function Index() {
      {/* <!--pagina - funcionalidades (vai ser de contato) --> */}
 
 
-     <section class="funcionalidades py-5">
+     <section id="projeto" class="funcionalidades py-5">
       <div class="row align-items-center container my-5 mx-auto">
         <div class="img col-lg-6 col-md-6 col-12 w-50">
           <img class="img-fluid" src={require('../../assets/images/quem-somos.svg').default}/>
@@ -50,8 +42,8 @@ function Index() {
         <div class="text col-lg-6 col-md-6 col-12 w-50 pt-5 pb-5">
           <h6>CONSCIRE</h6>
           <h2> Como o projeto atua? </h2>
-          <p> Queremos instigar maior pensamento crítico, através de materiais e quizes sobre o uso do álcool entre jovens, como ferramenta de conscientização. </p>
-          <a href="./Login.php">Conscientize-se</a>
+          <p>Queremos instigar maior pensamento crítico, através de materiais e quizes sobre o uso do álcool entre jovens, como ferramenta de conscientização.</p>
+          <Link to="/cadastro">Conscientize-se</Link>
         </div>
       </div>
     </section> 

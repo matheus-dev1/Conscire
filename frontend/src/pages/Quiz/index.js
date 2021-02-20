@@ -27,7 +27,7 @@ class Quiz extends React.Component {
     render() {
         return (
             <div className="App">
-                <div className="App-header">
+                <div className="App-header mt-5">
                     <Header />
                     <h2 style={{ fontFamily: 'cursive', fontSize: '1.8em' }}>
                         {this.state.quiz.title}
@@ -233,7 +233,7 @@ class QuizResults extends React.Component {
 
         return (
             <section className="resultsSection sectionConfig">
-                <h2>Resultado</h2>
+                <h2 className="mt-5">Resultado</h2>
                 <div className="scoring">
                 Você acertou <em>{numCorrect}</em> perguntas pontuação correta em um total de <b>{score}</b> possíveis. <b>{possibleScore}</b>.
                 </div>
