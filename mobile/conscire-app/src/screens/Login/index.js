@@ -15,7 +15,7 @@ function Login({navigation}) {
 
     function autenticacao() {
         if (apiUsuario.email === usuario && apiUsuario.senha === senha) {
-            navigation.navigate("Tarefas")
+            navigation.navigate("Moodle")
         } else {
             Alert.alert("Usuário Inválido", "Informe um e-mail e senha válidos!")
         }
@@ -23,6 +23,7 @@ function Login({navigation}) {
 
     const [usuario, setUsuario] = React.useState("");
     const [senha, setSenha] = React.useState("");
+
     return (
         <View style={styles.container}>
             <Image source={Logo} style={styles.logo}>                
@@ -39,7 +40,8 @@ function Login({navigation}) {
                 onChangeText={(text) => setUsuario(text)}
             />
 
-            <TextInput placeholder="Senha" 
+            <TextInput 
+                placeholder="Senha" 
                 style={styles.inputSenha} 
                 secureTextEntry={true} 
                 value={senha}
@@ -47,7 +49,7 @@ function Login({navigation}) {
             />
             
             <TouchableOpacity style={styles.btn} onPress={autenticacao}>
-                <Text style={styles.texto} onPress={() => navigation.navigate('Moodle')}>Entrar</Text>
+                <Text style={styles.texto}>Entrar</Text>
             </TouchableOpacity>
 
             <TouchableOpacity>
