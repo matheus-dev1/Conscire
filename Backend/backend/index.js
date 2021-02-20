@@ -213,6 +213,49 @@ server.post('/comentarios/envia', [
     
 })
 
+server.put('/audit/atualiza', (req, res) =>{
+    
+    const q1 =parseInt(req.body.select);
+    const q2 =parseInt(req.body.select2);
+    const q3 = parseInt(req.body.select3);
+    const q4 = parseInt(req.body.select4);    
+    const q5 = parseInt(req.body.select5); 
+    const q6 = parseInt(req.body.select6); 
+    const q7 = parseInt(req.body.select7); 
+    const q8 = parseInt(req.body.select8); 
+    const q9 = parseInt(req.body.select9); 
+    const q10 = parseInt(req.body.select10); 
+    
+    var resultado = q1+q2+q3+q4+q5+q6+q7+q8+q9+q10;
+   
+    const sql = `UPDATE login SET audit = '${resultado}' WHERE email='${EmailSession}'`; 
+    database.query(sql, (error, results) =>{
+   
+        const newLocal = "Resultado do teste Audit foi atualizado";
+        res.json({auth: false, message: newLocal})
+    })
+})
+
+server.get('/audit/retorna', function(req,res){ 
+    
+    const sql = `SELECT audit FROM login WHERE email='${EmailSession}'`;
+    database.query(sql, (error, resultado) =>{
+       
+        if (resultado[0].audit <= 7){
+            res.json("ZONA I: Pessoas que se localizam na ZONA I geralmente fazem uso de baixo risco de álcool ou são abstêmias. De uma forma geral, são pessoas que bebem menos de duas doses-padrão por dia ou que não ultrapassam a quantidade de cinco doses-padrão em uma única ocasião. A intervenção adequada nesse nível é a educação em saúde, para que haja a manutenção do padrão de uso atual.");
+        }
+        else if (resultado[0].audit>= 8 && resultado[0].audit <= 15){
+            res.json("ZONA II: Pessoas que pontuam nessa zona são consideradas usuários de risco; são pessoas que fazem uso acima de duas doses-padrão todos os dias ou mais de cinco doses-padrão numa única ocasião, porém não apresentam nenhum problema decorrente disso. A intervenção adequada nesse nível é a Orientação Básica sobre o uso de baixo risco e sobre os possíveis riscos orgânicos, psicológicos ou sociais que o usuário pode apresentar se mantiver esse padrão de uso.");
+        }
+        else if (resultado[0].audit >= 16  && resultado[0].audit <= 19 ){
+            res.json("ZONA III: Nessa zona de risco estão os usuários com padrão de uso nocivo; ou seja, pessoas que consomem álcool em quantidade e frequência acima dos padrões de baixo risco e já apresentam problemas decorrentes do uso de álcool. Por outro lado, essas pessoas não apresentam a quantidade de sintomas necessários para o diagnóstico de dependência. A intervenção adequada nesse nível é a utilização.");
+        }
+            
+        else if (resultado[0].audit  >= 20){
+            res.json('ZONA IV: Pessoas que se encontram nesse nível apresentam grande chance de ter um diagnóstico de dependência. Nesse caso, é preciso fazer uma avaliação mais cuidadosa e, se confirmado o diagnóstico, deve-se motivar o usuário a procurar atendimento especializado para acompanhamento e encaminhá-lo ao serviço adequado.');
+        }             
+    })            
+});
 
 server.listen(5000, ()=>{ //Indica qual porta o server irá rodar.
     console.log("Server on")
