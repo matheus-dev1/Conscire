@@ -70,7 +70,7 @@ function Login() {
                         </div>
                     </div>
                     {
-                        statusErro &&  <div class="alert alert-success mx-auto mt-4 w-75" role="alert">
+                        statusErro &&  <div class="alert alert-danger mx-auto mt-4 w-75" role="alert">
                         <p>{erros}</p>
                     </div>
                     }
