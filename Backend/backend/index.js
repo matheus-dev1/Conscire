@@ -60,64 +60,57 @@ server.post('/register', [
     const email = req.body.email;
     const senha= req.body.senha;
     const confirme= req.body.confirme;
-    
-       
     var errors = validationResult(req);
         if(!errors.isEmpty()){
             res.json({auth: false, validacao:errors, dados: [nome, email, senha]})
             console.log(errors);
             return;
         }
-
     if(senha==confirme){
-
         bcrypt.hash(senha, saltRounds, (error, hash)=>{
             if(error){
                 console.log(error)
             }
-            
             const sql = (`SELECT * FROM login WHERE email = '${email}'`)
             database.query(sql, (error, results)=>{
                 if(error){
                     console.log(error)
                     res.send({error: error})
                 }if (results.length > 0){
-                
-                bcrypt.compare(senha, results[0].SENHA, (error, response)=>{
-                    if(response){
+                    bcrypt.compare(senha, results[0].SENHA, (errors, response)=>{
+                        if(response){
+                            const id = results[0].ID
+                            const token = jwt.sign({id}, "jwtSecret", {
+                                expiresIn: 300,
+                            })
+                            req.session.user = results;
+                            console.log(req.session.user[0].EMAIL)
 
-                        
-                        const id = results[0].ID
-                        const token = jwt.sign({id}, "jwtSecret", {
-                            expiresIn: 300,
-                        })
-
-                        req.session.user = results;
-                        console.log(req.session.user[0].EMAIL)
-
-                        res.json({auth: true, token: token, results: results})
-                    }else{
-                        res.json({auth: false, message: "Email já cadastrado!"})
-                    }
-                })
+                            res.json({auth: false, validacao:errors,  token: token, results: results})
+                            
+                        }else{
+                            res.json({auth: false, validacao:errors, message: "Email já cadastrado!"})
+                        }
+                    })
                 }else{
                     const sql = `INSERT INTO login (NOME, EMAIL, SENHA) values ('${nome}', '${email}', '${hash}')`;
-                    database.query(sql, (error, results) =>{
-                                
+                    database.query(sql, (error, results) =>{    
                         const newLocal = "Cadastro realizado com sucesso";
-                        res.json({auth: false, message: newLocal})
+                        res.json({auth: false, validacao:errors, message: newLocal})
                     })
                 }
             })
         })
     }else{
         const newLocal = "As senhas estão diferentes";
-        res.json({auth: false, message: newLocal})
-        console.log('As senhas estão diferentes')
-        
+        res.json({auth: false, validacao:errors, message: newLocal})
+        console.log('As senhas estão diferentes')  
     }
-    
 })
+
+
+
+
 
 server.post('/login', (req, res) =>{
     const email = req.body.email;
@@ -181,24 +174,43 @@ server.get('/login', (req, res)=>{
 })
 
 
-server.get('/comentarios', (req, res)=>{
-    const sql = "SELECT * FROM  recodepro.comentarios;";
+
+
+
+
+
+server.get('/comentarios/retorna', (req, res)=>{
+    const sql = "SELECT * FROM  comentarios;";
     database.query(sql, (error, results) =>{
-        if(error){
-            return error;
-        }res.json(results)
+        res.json(results)  
     })
 })
 
-server.post('/comentarios', (req, res)=>{
-    const {nome, msg} = req.body; //Desestruturação do corpo da requisiçao em dois elementos que iremos enviar ao bd
-    const sql = `INSERT INTO comentarios (nome, msg) values ('${nome}', '${msg}')`;
-    database.query(sql, (error, results) =>{
-        if(error){
-            return error;
-        }res.json(results)
-    })
+server.get('/comentarios/envia', (req, res)=>{
+    res.json( {auth: false, validacao:{errors:{},}, dados:{}});  
+})
 
+server.post('/comentarios/envia', [ 
+    check('nome', 'Nome é obrigatório com pelo menos 3 caracteres').exists().isLength({min:3}),
+    check('nome', 'Nome não permite dígitos numéricos').isAlpha(),
+    check('sobrenome', 'Sobrenome é obrigatório com pelo menos 3 caracteres').exists().isLength({min:3}),
+    check('sobrenome', 'Sobrenome não permite dígitos numéricos').isAlpha(),
+    check('msg', 'A mensagem precisa ter pelo menos 3 caracteres').exists().isLength({min:3}),
+], (req, res)=>{
+    const {nome, sobrenome, msg} = req.body; //Desestruturação do corpo da requisiçao em dois elementos que iremos enviar ao bd
+    var errors = validationResult(req);
+    if(!errors.isEmpty()){
+        res.json({auth: false, validacao:errors, dados: [nome, sobrenome, msg]})
+        console.log(errors);
+        return;
+    }
+    const sql = `INSERT INTO comentarios (nome, sobrenome, msg) values ('${nome}', '${sobrenome}', '${msg}')`;
+    database.query(sql, (error, results) =>{
+        const newLocal = "Agradecemos pela mensagem!!";
+        res.json({auth: false, validacao:errors, message: newLocal})
+
+    })
+    
 })
 
 
