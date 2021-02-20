@@ -12,7 +12,7 @@ function Contato() {
     const [statusErro, setStatusErro] = useState(false);
     const [mensagens, setMensagens ] = useState([]);
     const [render, setRender] = useState(false);
-
+    const v =[]
     useEffect(() => {
       async function fetchData(){
           const url =  "http://localhost:5000/comentarios/retorna"; 
