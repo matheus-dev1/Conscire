@@ -1,5 +1,6 @@
 import React from 'react'
 import {useEffect, useState} from 'react'; 
+import Axios from 'axios';
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 
@@ -8,19 +9,20 @@ import './styles.css'
 function ResultadoAudit() {
     const [result, setResult] = useState([]);
     const [statusResult, setStatusResult] = useState(false);
+    Axios.defaults.withCredentials = true;
    
-    useEffect(() => {
-        async function fetchData(){
-            const url =  "http://localhost:5000/audit/retorna"; 
-            const response = await fetch(url);
-            setResult(await response.json());
-        }fetchData();    
-      }, []);
-     
+    window.onload = ()=>{
+        const emailsession = localStorage.getItem('email')
+        console.log(emailsession)
+        Axios.post("http://localhost:5000/audit/retorna",{
+            email: emailsession,
+        }).then((Response)=> {
+            console.log(Response.data.message)
+            setResult(Response.data.message)
+            setStatusResult(true)
+        })
+     }
 
-      setTimeout(() => {
-        setStatusResult(true);
-      }, 50000);
 
 
   
@@ -43,4 +45,4 @@ function ResultadoAudit() {
     )
 }
 
-export default ResultadoAudit
+export default ResultadoAudit;
