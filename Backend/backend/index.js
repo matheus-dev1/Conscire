@@ -49,22 +49,74 @@ server.get("/", (req, res) =>{ //Raiz
     res.end("<html><h1> Hello world </h1> </html>")
 })
 
-server.post('/register', (req, res) =>{
+server.post('/register', [ 
+    check('nome', 'Nome é obrigatório com pelo menos 3 caracteres').exists().isLength({min:3}),
+    check('nome', 'Nome não permite dígitos numéricos').isAlpha(),
+    check('email', 'Email é obrigatório').isEmail().normalizeEmail(),
+    check('senha', 'A senha precisa ter no mínimo 5 dígitos e no máximo 8!').exists().isLength({min:5,max:8}),
+    check('confirme', 'A senha precisa ser igual a digitada anteriormente!').exists().isLength({min:5,max:8}),
+], (req, res) =>{
     const nome = req.body.nome;
     const email = req.body.email;
     const senha= req.body.senha;
-
-    bcrypt.hash(senha, saltRounds, (error, hash)=>{
-        if(error){
-            console.log(error)
+    const confirme= req.body.confirme;
+    
+       
+    var errors = validationResult(req);
+        if(!errors.isEmpty()){
+            res.json({auth: false, validacao:errors, dados: [nome, email, senha]})
+            console.log(errors);
+            return;
         }
-        const sql = `INSERT INTO login (NOME, EMAIL, SENHA) values ('${nome}', '${email}', '${hash}')`;
-        database.query(sql, (error, results) =>{
+
+    if(senha==confirme){
+
+        bcrypt.hash(senha, saltRounds, (error, hash)=>{
             if(error){
-                console.log(error);
-            }res.json(results)
-        })  
-    })
+                console.log(error)
+            }
+            
+            const sql = (`SELECT * FROM login WHERE email = '${email}'`)
+            database.query(sql, (error, results)=>{
+                if(error){
+                    console.log(error)
+                    res.send({error: error})
+                }if (results.length > 0){
+                
+                bcrypt.compare(senha, results[0].SENHA, (error, response)=>{
+                    if(response){
+
+                        
+                        const id = results[0].ID
+                        const token = jwt.sign({id}, "jwtSecret", {
+                            expiresIn: 300,
+                        })
+
+                        req.session.user = results;
+                        console.log(req.session.user[0].EMAIL)
+
+                        res.json({auth: true, token: token, results: results})
+                    }else{
+                        res.json({auth: false, message: "Email já cadastrado!"})
+                    }
+                })
+                }else{
+                    const sql = `INSERT INTO login (NOME, EMAIL, SENHA) values ('${nome}', '${email}', '${hash}')`;
+                    database.query(sql, (error, results) =>{
+                                
+                        const newLocal = "Cadastro realizado com sucesso";
+                        res.json({auth: false, message: newLocal})
+                    })
+                }
+            })
+        })
+    }else{
+        const newLocal = "As senhas estão diferentes";
+        res.json({auth: false, message: newLocal})
+        console.log('As senhas estão diferentes')
+        
+    }
+    
 })
 
 server.post('/login', (req, res) =>{
