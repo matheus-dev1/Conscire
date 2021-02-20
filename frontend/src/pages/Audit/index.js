@@ -23,6 +23,7 @@ function Audit() {
     const [q9, setQ9] = useState('');
     const [q10, setQ10] = useState('');
     const [email, SetEmail] = useState('');
+    const [auth, setAuth] = useState(false)
 
     window.onload = ()=>{
         const email = localStorage.getItem('email')
@@ -47,6 +48,7 @@ function Audit() {
         email: email,	
         }).then((Response) => {
             console.log(Response);
+            setAuth(true);
         })
     }
 
@@ -153,6 +155,7 @@ function Audit() {
                 </p>
                 <p>&nbsp;</p>
             </div>
+            {auth && window.location.assign("http://localhost:3000/resultadoAudit")}
             <Footer />
         </>
     )

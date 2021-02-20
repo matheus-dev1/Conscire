@@ -10,7 +10,7 @@ import Moodle from './pages/Moodle';
 import Quiz from './pages/Quiz';
 import resultadoAudit from './pages/ResultadoAudit';
 
-export const isAuthenticated = () =>  {
+ const isAuthenticated = () =>  {
     if (localStorage.getItem('token')) {
         return true
     } else {

@@ -78,7 +78,9 @@ function Login() {
                         <p>{erros}</p>
                     </div>
                     }
-
+                    {
+                        loginStatus && window.location.assign("http://localhost:3000/moodle")
+                    }
                     <p>Não possui uma conta?<br/> <Link to="/cadastro">Registre-se aqui</Link></p>
                     <p><Link to="/">Voltar para Conscire</Link></p>
             </div>
