@@ -2,37 +2,49 @@
 //@ts-check
 import React from 'react'
 import {useEffect, useState} from 'react'; 
+import Axios from 'axios';
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 
 import './styles.css'
 
 function ResultadoAudit() {
-    const [erros, setErros] = useState([]);
-    const [statusErro, setStatusErro] = useState(false);
-    useEffect(() => {
-        async function fetchData(){
-            const url =  "http://localhost:5000/audit/retorna"; 
-            const response = await fetch(url);
-            setErros(await response.json());
-        }fetchData();    
-      }, []);
+    const [result, setResult] = useState([]);
+    const [statusResult, setStatusResult] = useState(false);
+    Axios.defaults.withCredentials = true;
+   
+    window.onload = ()=>{
+        const emailsession = localStorage.getItem('email')
+        console.log(emailsession)
+        Axios.post("http://localhost:5000/audit/retorna",{
+            email: emailsession,
+        }).then((Response)=> {
+            console.log(Response.data.message)
+            setResult(Response.data.message)
+            setStatusResult(true)
+        })
+     }
+
+
+
   
     return (
         <>
             <Header />
+            <br /> <br /> <br /> <br /> <br /> <br /> <br />
                 <div className="text-center text-dark py-3"> <h4 > Resultado Audit </h4> 
-                    <div >          
-                        {erros.map((item) =>{
-                            return(
-                            statusErro &&  <div className="alert alert-danger mx-auto mt-4 w-75" role="alert">{item}</div>
-                            )            
-                        })}
+                <div >          
+                    {
+                        statusResult &&  <div className="alert alert-success mx-auto mt-4 w-75" role="alert">
+                        <p>{result}</p>
+                    </div>
+                    }
                     </div>
                 </div>
+                
             <Footer />
         </>
     )
 }
 
-export default ResultadoAudit
+export default ResultadoAudit;

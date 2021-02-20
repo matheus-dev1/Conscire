@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from 'react'
+import React, {useState} from 'react'
+import Axios from 'axios'
 
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
@@ -9,6 +10,41 @@ import { Link } from 'react-router-dom'
 import './styles.css'
 
 function Login() {
+    
+    const [senha, setSenha] = useState('');
+    const [email, setEmail] = useState('');
+    const [erros, setErros] = useState('');
+
+    const [loginStatus, setLoginStatus] = useState(false);
+    const [statusErro, setStatusErro] = useState(false);
+
+    Axios.defaults.withCredentials = true;
+
+    const login = ()=>{
+        Axios.post("http://localhost:5000/login", {
+            email: email,
+            senha: senha
+        }).then((response) => {
+            if(!response.data.auth){
+                console.log(response.data.message);
+                setErros(response.data.message);
+                setLoginStatus(false);
+                setStatusErro(true);
+            }else{
+                localStorage.setItem("token", response.data.token)
+                localStorage.setItem("email", response.data.results)
+                setLoginStatus(true);
+                console.log(localStorage.getItem('token'))
+                console.log(response.data.results)
+            }
+        })
+        setTimeout(() => {
+            setStatusErro(false);
+          }, 5000);
+
+    }
+
+
     return (
         <>
         <Header /> 
@@ -22,26 +58,29 @@ function Login() {
                 <img id="logo" src={require('../../assets/images/logo.png').default} alt="Conscire"/>
                 {/*  */}
                 <h5 className= "my-3 p-2">Entre na sua conta</h5>
-                
-                <form action='../Back-end/php/login_usuario.php' method='POST'>
                     <div className="form-row">
                         <div className="col-lg-7">
-                            <input type="email" name="email" placeholder="Seu email aqui" className="form-control my-3 p-4"/>
+                            <input type="email" name="email" placeholder="Seu email aqui" className="form-control my-3 p-4" onChange={(e) =>{setEmail(e.target.value);}}/>
                         </div>
                     </div>
                     <div className="form-row">
                         <div className="col-lg-7">
-                            <input type="password" name="senha" placeholder="********" className="form-control my-3 p-4"/>
+                            <input type="password" name="senha" placeholder="********" className="form-control my-3 p-4" onChange={(e) =>{setSenha(e.target.value);}}/>
                         </div>
                     </div>
                     <div className="form-row">
                         <div className="col-lg-7">
-                            <button type="submit" className="btn1 mt-3 mb-5">Login</button>
+                            <button onClick ={login} className="btn1 mt-3 mb-5">Login</button>
                         </div>
                     </div>
+			 {
+                        statusErro &&  <div class="alert alert-danger mx-auto mt-4 w-75" role="alert">
+                        <p>{erros}</p>
+                    </div>
+                    }
+
                     <p>Não possui uma conta?<br/> <Link to="/cadastro">Registre-se aqui</Link></p>
                     <p><Link to="/">Voltar para Conscire</Link></p>
-                </form>
             </div>
         </div>
     </div>
