@@ -4,9 +4,9 @@ import { BrowserRouter, Route, Switch, Redirect} from "react-router-dom";
 import Index from './pages/Index';
 import Audit from './pages/Audit';
 import Cadastro from './pages/Cadastro';
-import Contato from './pages/Contato';
+import Contato from './pages/contato';
 import Login from './pages/Login';
-import Moodle from './pages/Moodle';
+import Moodle from './pages/moodle';
 import Quiz from './pages/Quiz';
 import resultadoAudit from './pages/ResultadoAudit';
 
