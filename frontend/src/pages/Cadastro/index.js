@@ -1,14 +1,10 @@
 import React from 'react'
 import {useState} from 'react';  
- 
 import Axios from "axios";
-
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 
-
 function Cadastro() {
-
     const [nome, setNome] = useState("");
     const [email, setEmail] = useState("");
     const [senha, setSenha] = useState("");
@@ -16,7 +12,6 @@ function Cadastro() {
     const [erros, setErros] = useState([]);
     const [statusErro, setStatusErro] = useState(false);
     const v = []
-
     const cadastrar = ()=>{
         Axios.post("http://localhost:5000/register", {
             nome: nome,
@@ -24,18 +19,18 @@ function Cadastro() {
             senha: senha,
             confirme: confirme
         }).then((response) => {
-            
-            for (var i=0;i<response.data.validacao.errors.length;i++){
-                if(!response.data.auth){
-                    v.push(response.data.validacao.errors[i].msg)
-                    setStatusErro(true);
-                }else{
-                    setStatusErro(false);
+            if(response.data.message){
+                v.push(response.data.message)
+                setStatusErro(true);
+            }else{
+                for(var i=0;i<response.data.validacao.errors.length;i++){
+                    if(!response.data.auth){
+                        v.push(response.data.validacao.errors[i].msg)
+                        setStatusErro(true);
+                    }
                 }
-            }
-            
+           }
             setErros(v)
-            console.log(erros)
         })
         setTimeout(() => {
             setStatusErro(false);
@@ -45,10 +40,7 @@ function Cadastro() {
         setEmail('');
         setSenha('');
         setConfirme('');
-
     }
-
-
     return (
         <>
             <Header />
@@ -111,9 +103,7 @@ function Cadastro() {
         </>
     )
 }
-
 export default Cadastro
-
 
 
 
