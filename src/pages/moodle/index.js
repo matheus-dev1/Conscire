@@ -48,23 +48,19 @@ linkColor.forEach(l=> l.addEventListener('click', colorLink))
 
     const logout = ()=>{
         const token = localStorage.getItem('token')
-        if(token != null){
+        const email = localStorage.getItem('email')
+        if(token !== null && email !== null){
             localStorage.removeItem('token')
+            localStorage.removeItem('email')
             window.location.assign("http://localhost:3000/")
         }
     }
 
     window.onload = ()=>{
-        Axios.get("http://localhost:5000/isUserAuth", {
-            headers:{
-                "x-acess-token": localStorage.getItem('token'),
-            },
-        }).then((response)=>{
-            if(response.data != null || response.data != undefined){
-                console.log(response.data)
-                Setnome(response.data)
-            }
-        })
+       const email = localStorage.getItem('email')
+       if(email != null){
+           Setnome(email)
+       }
     }
 
     return (
@@ -135,7 +131,7 @@ linkColor.forEach(l=> l.addEventListener('click', colorLink))
         </div>
 
         <div className="container">
-            <h3>{nome}</h3>
+            <h5>Boas vindas usuário, este é o seu email cadastrado em nossa plataforma: {nome}</h5>
             <div className="row" >
 
             <CardMoodle 

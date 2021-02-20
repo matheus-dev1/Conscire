@@ -30,8 +30,10 @@ function Login() {
                 setStatusErro(true);
             }else{
                 localStorage.setItem("token", response.data.token)
+                localStorage.setItem("email", response.data.results)
                 setLoginStatus(true);
                 console.log(localStorage.getItem('token'))
+                console.log(response.data.results)
             }
         })
         setTimeout(() => {

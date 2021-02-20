@@ -11,7 +11,7 @@ const express = require("express"), //IMPORTAÇÕES: EXPRESS, CORS, MYSQL
 const saltRounds = 10
 
 
-
+const {check, validationResult } = require("express-validator");
 const { response } = require("express");
 const connection = require('./Index/config/database');
 const database = connection();
@@ -20,7 +20,7 @@ const database = connection();
 //Middlewares
     server.use(cors({
         origin:['http://localhost:3000'],
-        methods: ['GET', 'POST'],
+        methods: ['GET', 'POST', 'PUT'],
         credentials: true
     })); //Permite a leitura de fontes externas
 
@@ -131,9 +131,10 @@ server.post('/login', (req, res) =>{
                     })
 
                     req.session.user = results;
+                    EmailSession = req.session.user[0].EMAIL
                     console.log(req.session.user[0].NOME)
 
-                    res.json({auth: true, token: token, results: results})
+                    res.json({auth: true, token: token, results: EmailSession})                         
                 }else{
                     res.json({auth: false, message: "Senha errada!"})
                 }
@@ -212,6 +213,40 @@ server.post('/comentarios/envia', [
     })
     
 })
+
+server.put('/audit/atualiza', (req, res) =>{
+    
+    const q1 =parseInt(req.body.q1);
+    const q2 =parseInt(req.body.q2);
+    const q3 = parseInt(req.body.q3);
+    const q4 = parseInt(req.body.q4);    
+    const q5 = parseInt(req.body.q5); 
+    const q6 = parseInt(req.body.q6); 
+    const q7 = parseInt(req.body.q7); 
+    const q8 = parseInt(req.body.q8); 
+    const q9 = parseInt(req.body.q9); 
+    const q10 = parseInt(req.body.q10); 
+    const email = req.body.email;
+    
+    
+    var resultado = q1+q2+q3+q4+q5+q6+q7+q8+q9+q10;
+    console.log(resultado)
+    console.log(email)    
+   
+    const sql = `UPDATE login SET AUDIT = '${resultado}' WHERE EMAIL='${email}'`; 
+        database.query(sql, (error, results) =>{
+            if(error){
+                console.log(error)
+            }
+        console.log(results)
+        const newLocal = "Resultado do teste Audit foi atualizado";
+        res.json({auth: true, message: newLocal})
+       
+    })
+    
+ 
+})
+
 
 
 server.listen(5000, ()=>{ //Indica qual porta o server irá rodar.
