@@ -51,7 +51,6 @@ server.get("/", (req, res) =>{ //Raiz
 
 server.post('/register', [ 
     check('nome', 'Nome é obrigatório com pelo menos 3 caracteres').exists().isLength({min:3}),
-    check('nome', 'Nome não permite dígitos numéricos').isAlpha(),
     check('email', 'Email é obrigatório').isEmail().normalizeEmail(),
     check('senha', 'A senha precisa ter no mínimo 5 dígitos e no máximo 8!').exists().isLength({min:5,max:8}),
     check('confirme', 'A senha precisa ser igual a digitada anteriormente!').exists().isLength({min:5,max:8}),
@@ -195,9 +194,7 @@ server.get('/comentarios/envia', (req, res)=>{
 
 server.post('/comentarios/envia', [ 
     check('nome', 'Nome é obrigatório com pelo menos 3 caracteres').exists().isLength({min:3}),
-    check('nome', 'Nome não permite dígitos numéricos').isAlpha(),
     check('sobrenome', 'Sobrenome é obrigatório com pelo menos 3 caracteres').exists().isLength({min:3}),
-    check('sobrenome', 'Sobrenome não permite dígitos numéricos').isAlpha(),
     check('msg', 'A mensagem precisa ter pelo menos 3 caracteres').exists().isLength({min:3}),
 ], (req, res)=>{
     const {nome, sobrenome, msg} = req.body; //Desestruturação do corpo da requisiçao em dois elementos que iremos enviar ao bd
