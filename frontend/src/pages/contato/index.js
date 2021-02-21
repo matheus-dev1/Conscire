@@ -44,7 +44,7 @@ function Contato() {
         setTimeout(() => {
             setStatusErro(false);
             setRender(true);
-          }, 10000);
+          }, 50000);
 
       setNome('');
       setSobrenome('');
