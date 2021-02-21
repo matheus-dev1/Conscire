@@ -2,6 +2,8 @@ import React from 'react'
 
 // import './styles.css'
 
+import { Link } from 'react-router-dom'
+
 function CardMoodle(props) {
     return(
              <div className="col-xs-6 col-sm-4">
@@ -21,9 +23,9 @@ function CardMoodle(props) {
                 </div>
 
                     <div className="card-read-more">
-                        <a className="btn btn-link btn-block" href={props.linkAdrress}>
+                        <Link className="btn btn-link btn-block" to={props.linkAdrress}>
                             Clique aqui para saber mais
-                        </a>
+                        </Link>
                     </div>
 
                 </div>

@@ -107,7 +107,7 @@ const[nome, Setnome] = useState('');
                             <span className="nav__name">Teste Audit</span>
                         </Link>
 
-                        <Link to="/resultado_audit" className="nav__link">
+                        <Link to="/resultadoAudit" className="nav__link">
                             <i className='bx bx-trophy nav__icon' ></i>
                             <span className="nav__name">Resultado Audit</span>
                         </Link>
@@ -138,14 +138,14 @@ const[nome, Setnome] = useState('');
             />
 
             <CardMoodle 
-            linkAdrress={"#"}
+            linkAdrress={"/quiz"}
             image={require("../../assets/images/quiz.png").default}
             description={"E ai, já tomou um gole de consciência no nosso site? Entao venha responder nosso Quiz, marcar muitos pontos e escalar nosso ranking!"}
             title={"QUIZ"}
             />
 
             <CardMoodle 
-            linkAdrress={"#"}
+            linkAdrress={"/audit"}
             image={require("../../assets/images/teste-audit.png").default}
             description={"O AUDIT - Alcool Use Disorders Identification Test é um instrumento de avaliação desenvolvido pela Organização Mundial de Saúde (OMS)."}
             title={"TESTE AUDIT"}

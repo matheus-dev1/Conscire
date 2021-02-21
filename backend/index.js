@@ -93,7 +93,7 @@ server.post('/register', [
                         }
                     })
                 }else{
-                    const sql = `INSERT INTO login (NOME, EMAIL, SENHA) values ('${nome}', '${email}', '${hash}')`;
+                    const sql = `INSERT INTO login (nome, email, senha) VALUES('${nome}', '${email}', '${hash}')`;
                     database.query(sql, (error, results) =>{    
                         const newLocal = "Cadastro realizado com sucesso";
                         res.json({auth: false, validacao:errors, message: newLocal})
@@ -122,7 +122,8 @@ server.post('/login', (req, res) =>{
             console.log(error)
             res.send({error: error})
         }if (results.length > 0){
-            bcrypt.compare(senha, results[0].SENHA, (error, response)=>{
+            bcrypt.compare(senha, results[0].senha, (error, response)=>{
+                console.log(results[0].senha)
                 if(response){
                     
                     const id = results[0].ID
@@ -131,11 +132,12 @@ server.post('/login', (req, res) =>{
                     })
 
                     req.session.user = results;
-                    EmailSession = req.session.user[0].EMAIL
-                    console.log(req.session.user[0].NOME)
+                    EmailSession = req.session.user[0].email
+                    console.log(req.session.user[0].nome)
 
                     res.json({auth: true, token: token, results: EmailSession})                         
                 }else{
+                    console.log(senha)
                     res.json({auth: false, message: "Senha errada!"})
                 }
             })
@@ -216,24 +218,24 @@ server.post('/comentarios/envia', [
 
 server.put('/audit/atualiza', (req, res) =>{
     
-    const q1 =parseInt(req.body.q1);
-    const q2 =parseInt(req.body.q2);
-    const q3 = parseInt(req.body.q3);
-    const q4 = parseInt(req.body.q4);    
-    const q5 = parseInt(req.body.q5); 
-    const q6 = parseInt(req.body.q6); 
-    const q7 = parseInt(req.body.q7); 
-    const q8 = parseInt(req.body.q8); 
-    const q9 = parseInt(req.body.q9); 
-    const q10 = parseInt(req.body.q10); 
+    const q1 = req.body.q1;
+    const q2 = req.body.q2;
+    const q3 = req.body.q3;
+    const q4 = req.body.q4;    
+    const q5 = req.body.q5; 
+    const q6 = req.body.q6; 
+    const q7 = req.body.q7; 
+    const q8 = req.body.q8; 
+    const q9 = req.body.q9; 
+    const q10 = req.body.q10; 
     const email = req.body.email;
     
-    
     var resultado = q1+q2+q3+q4+q5+q6+q7+q8+q9+q10;
+    console.log(q2)  
     console.log(resultado)
     console.log(email)    
    
-    const sql = `UPDATE login SET AUDIT = '${resultado}' WHERE EMAIL='${email}'`; 
+    const sql = `UPDATE login SET audit = '${resultado}' WHERE email = '${email}'`; 
         database.query(sql, (error, results) =>{
             if(error){
                 console.log(error)
