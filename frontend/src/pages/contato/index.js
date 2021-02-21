@@ -130,7 +130,7 @@ function Contato() {
                               Data: {item.data}
                           </div>
                           <div>
-                              Cliente {item.nome} {item.sobrenome} escreveu: {item.msg}
+                              {item.nome} {item.sobrenome} escreveu: {item.msg}
                           </div>
                           <hr/><hr/>
                       </div>
