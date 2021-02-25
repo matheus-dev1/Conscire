@@ -36,7 +36,7 @@ function ResultadoAudit() {
                 <div >          
                     {
                         statusResult &&  <div className="alert alert-success mx-auto mt-4 w-75" role="alert">
-                        <p className="text-center text-dark py-3">{result}</p>
+                        <p className="texto-m text-center text-dark py-3">{result}</p>
                     </div>
                     }
                     </div>
