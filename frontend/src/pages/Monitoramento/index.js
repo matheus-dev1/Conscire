@@ -1,3 +1,5 @@
+//Códigos no backend, das APIs DO FOMULÁRIO E DA TABELA 
+
 import React, {useState, useEffect} from 'react';
 import Axios from 'axios';
 import  {Chart}  from "react-google-charts";
