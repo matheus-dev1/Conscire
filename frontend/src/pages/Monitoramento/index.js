@@ -43,7 +43,7 @@ function Monitoramento() {
                 v.push(response.data.message)
                 setStatusErro(true); 
            }
-            setErros(JSON.stringify(v))
+            setErros(v)
           })
           setRender(!render);  
           setTimeout(() => {
