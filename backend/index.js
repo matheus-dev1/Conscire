@@ -279,6 +279,30 @@ server.post('/audit/retorna', function(req,res){
 
 
 
+server.get('/monitoramento/retorna', (req, res)=>{
+    const sql = `SELECT * FROM  monitoramento`;
+    var questao1=0
+    var questao2=0
+    var questao3=0
+    database.query(sql, (errors, results) =>{
+        res.json(results)   
+    }) 
+})
+server.post('/monitoramento/register', (req, res)=>{
+    const {q1, q2, q3} = req.body; 
+    const sql = `INSERT INTO monitoramento (q1, q2, q3) values ('${q1}', '${q2}', '${q3}')`;
+    database.query(sql, (errors, results) =>{
+        const newLocal = "Agradecemos pelo seu feedback!!";
+        res.json({auth: false, validacao:errors, message: newLocal})
+    })
+})
+
+
+
+
+
+
+
 server.listen(5000, ()=>{ //Indica qual porta o server irá rodar.
     console.log("Server on")
 })
