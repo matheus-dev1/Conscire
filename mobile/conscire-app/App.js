@@ -6,7 +6,6 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import Fontisto from 'react-native-vector-icons/Fontisto';
 import Foundation from 'react-native-vector-icons/Foundation';
 import Entypo from 'react-native-vector-icons/Entypo';
-
 import HomeScreen from './src/screens/Home';
 import SobreScreen from './src/screens/Sobre';
 import CadastroScreen from './src/screens/Cadastro';
@@ -22,7 +21,7 @@ function App() {
       <Tab.Navigator
       initialRouteName="Home"
       activeColor="#f0edf6"
-      barStyle={{ backgroundColor: '#F30F4C' }}
+      barStyle={{ backgroundColor: '#744D8C' }}
       >
 
         <Tab.Screen

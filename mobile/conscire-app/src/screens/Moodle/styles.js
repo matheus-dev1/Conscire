@@ -10,17 +10,18 @@ const styles = StyleSheet.create({
       },
 
     logo: {
-        marginTop: 80,
-        marginLeft: -5,
-        width: 350,
-        height: 80    
+        width: 200,
+        height: 40, 
+        marginLeft: 53,
+        marginTop: -10,
+        marginBottom: -10,   
     },
 
     imageH: {
         width: 300,
         height: 180,
         marginBottom: 20,
-        marginTop: 20,
+        marginTop: 10,
         marginLeft: 22,
         borderRadius: 5
     },
@@ -29,7 +30,7 @@ const styles = StyleSheet.create({
         width: 300,
         height: 180,
         marginBottom: 50,
-        marginTop: 43,
+        marginTop: 35,
         marginLeft: 22,
         borderRadius: 5
     },
@@ -38,7 +39,7 @@ const styles = StyleSheet.create({
         width: 300,
         height: 180,
         marginBottom: 20,
-        marginTop: 42,
+        marginTop: 32,
         marginLeft: 22,
         borderRadius: 5
     },
@@ -47,7 +48,7 @@ const styles = StyleSheet.create({
         width: 300,
         height: 180,
         marginBottom: 50,
-        marginTop: 50,
+        marginTop: 30,
         marginLeft: 22,
         borderRadius: 5
     },
@@ -55,8 +56,8 @@ const styles = StyleSheet.create({
     imageI: {
         width: 300,
         height: 180,
-        marginBottom: 85,
-        marginTop: 60,
+        marginBottom: 75,
+        marginTop: 40,
         marginLeft: 22,
         borderRadius: 5
     },
@@ -64,8 +65,8 @@ const styles = StyleSheet.create({
     imageM: {
         width: 300,
         height: 180,
-        marginBottom: 100,
-        marginTop: 55,
+        marginBottom: 40,
+        marginTop: 50,
         marginLeft: 22,
         borderRadius: 5
     },
@@ -73,9 +74,9 @@ const styles = StyleSheet.create({
     titulo: {
         color: '#744D8C',
         fontSize: 25,
-        marginTop: 40,
+        marginTop: 25,
         marginBottom: 20,
-        marginLeft: 24,
+        marginLeft: -5,
     },
 
     textHist: {
@@ -108,18 +109,22 @@ const styles = StyleSheet.create({
 
     textMidia: {
         fontSize: 20,
-        marginTop: -75,
+        marginTop: -65,
         marginLeft: 12,
         color: '#F09F09'
     },
 
     textMeta: {
         fontSize: 20,
-        marginTop: -90,
-        marginBottom: 50,
+        marginTop: -30,
+        marginBottom: 100,
         marginLeft: 60, 
         color: '#F09F09'
-    }    
+    },
+    appbar: {
+        backgroundColor: '#744D8C'
+    }  
+     
 })
 
 export default styles;

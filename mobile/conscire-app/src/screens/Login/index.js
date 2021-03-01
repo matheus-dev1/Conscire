@@ -1,7 +1,8 @@
 import React from 'react';
 import { View, Text, Image, TextInput, TouchableOpacity, Alert } from 'react-native';
+import { Appbar } from 'react-native-paper';
 
-import Logo from '../../../assets/logo.png'
+import Logo from '../../../assets/log.png'
 
 import styles from './styles';
 
@@ -25,6 +26,11 @@ function Login({navigation}) {
     const [senha, setSenha] = React.useState("");
 
     return (
+        <>
+        <Appbar.Header style={styles.appbar}>
+        <Appbar.BackAction onPress={() => {navigation.navigate('Home')}} />        
+        </Appbar.Header>
+
         <View style={styles.container}>
             <Image source={Logo} style={styles.logo}>                
             </Image>
@@ -56,6 +62,7 @@ function Login({navigation}) {
                 <Text style={styles.textoCad} onPress={() => navigation.navigate('Cadastro')}>Ainda não tem uma conta? Cadastre-se</Text>
             </TouchableOpacity>
         </View>
+        </>
     )
 }
 

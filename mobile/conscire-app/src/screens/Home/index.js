@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, Image, TouchableOpacity } from 'react-native';
-import Logo from '../../../assets/logo.png';
+import Logo from '../../../assets/log.png';
 import styles from './styles';
 
 function Home({navigation}) {

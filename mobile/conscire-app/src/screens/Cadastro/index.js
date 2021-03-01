@@ -1,10 +1,17 @@
 import React from 'react';
-import { View, Text, TextInput, Image, TouchableOpacity } from 'react-native';
+import { View, Text, TextInput, Image, TouchableOpacity, StatusBar } from 'react-native';
+import { Appbar } from 'react-native-paper';
 import styles from './styles';
-import Logob from '../../../assets/logob.png';
+import Logob from '../../../assets/logos.png';
 
 function Cadastro({navigation}) {
     return (
+        <>
+        <StatusBar/>
+        <Appbar.Header style={styles.appbar}>
+            <Appbar.BackAction onPress={() => {navigation.navigate('Home')}} />     
+        </Appbar.Header>
+        
         <View style={styles.container}>
             <Image source={Logob} style={styles.logob}>                
             </Image>
@@ -40,6 +47,7 @@ function Cadastro({navigation}) {
                 <Text style={styles.textoCad}>Já têm cadastro? Faça Login</Text>
             </TouchableOpacity>
         </View>
+        </>
     )
 }
 

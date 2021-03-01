@@ -10,10 +10,10 @@ const styles = StyleSheet.create({
     },
 
     logo: {
-        width: 200,
-        height: 200,
-        marginBottom: 5,
-        marginTop: 80
+        width: 300,
+        height: 75, 
+        marginBottom: 40,
+        marginTop: -40
     },
 
     titulo: {
@@ -42,6 +42,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#F09F09',
         width: '90%',
         marginTop: 20,
+        marginBottom: 50,
         padding: 8,
         borderRadius: 8,
         fontSize: 20
@@ -57,9 +58,13 @@ const styles = StyleSheet.create({
         fontSize: 20,
         color: 'white',
         textAlign: 'center',
-        marginTop: 100,
-        marginBottom: -60
-    },  
+        marginTop: 65,
+        marginBottom: -90
+    }, 
+
+    appbar: {
+        backgroundColor: '#744D8C',
+    }, 
 })
 
 export default styles;

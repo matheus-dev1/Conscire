@@ -4,30 +4,29 @@ const styles = StyleSheet.create({
     container: {
         width: '100%',
         height: '100%',
-        backgroundColor: 'white',
-        
+        backgroundColor: 'white',  
     },
 
     logos: {
-        marginTop: 80,
-        marginLeft: 18,
-        width: 350,
-        height: 80
+        marginTop: 50,
+        marginLeft: 50,
+        width: 290,
+        height: 70,
     },
 
     imagemContato: {
-        width: 350,
-        height: 350, 
-        marginLeft: 30,
-        marginTop: 50,
+        width: 280,
+        height: 280, 
+        marginLeft: 65,
+        marginTop: 80,
     },
     
     titulo: {
         color: '#F09F09',
-        fontSize: 25,
-        marginTop: 35,
-        marginLeft: 38,
-        marginRight: 30,
+        fontSize: 23,
+        marginTop: 60,
+        marginLeft: 55,
+        marginRight: 40,
         marginBottom: -30
     },
 
@@ -41,7 +40,7 @@ const styles = StyleSheet.create({
     },
 
     texto: {
-        fontSize: 22,
+        fontSize: 20,
         color: '#744D8C',
         textAlign: 'center',
         marginLeft: 30,
@@ -73,6 +72,9 @@ const styles = StyleSheet.create({
         padding: 8,
         borderRadius: 8,
         fontSize: 20
+    },
+    appbar: {
+        backgroundColor: '#744D8C',
     },
 })
 

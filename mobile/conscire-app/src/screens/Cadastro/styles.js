@@ -10,16 +10,17 @@ const styles = StyleSheet.create({
     },
 
     logob: {
-        width: 200,
-        height: 200,
+        width: 275,
+        height: 65,
         marginBottom: 5,
-        marginTop: 100
+        marginTop: -20,
+        marginLeft: -10
     },
     
     titulo: {
         color: '#744D8C',
         fontSize: 28,
-        marginTop: 40
+        marginTop: 80
     },
 
     inputEmail: {
@@ -56,13 +57,16 @@ const styles = StyleSheet.create({
         fontSize: 20,
         color: '#744D8C',
         textAlign: 'center',
-        marginTop: 90,
+        marginTop: 120,
         marginBottom: -60
     },
     btnL: {
         marginBottom: 80,
         marginTop: -30
-    }  
+    },
+    appbar: {
+        backgroundColor: '#744D8C',
+    },
 })
 
 export default styles;

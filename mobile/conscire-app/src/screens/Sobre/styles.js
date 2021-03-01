@@ -5,30 +5,30 @@ const styles = StyleSheet.create({
         width: '100%',
         height: '100%',
         backgroundColor: 'white',
-        //alignItems: 'center',
-        //justifyContent: 'center',
-      },
+    },
+
     logos: {
-        marginTop: 80,
-        marginLeft: 18,
-        marginBottom: -2,
-        width: 350,
-        height: 80        
+        marginTop: 7,
+        marginLeft: 60,
+        marginBottom: 10,
+        width: 190,
+        height: 40        
     },
+
     ImagemSobre: {
-        width: 350,
-        height: 350, 
-        marginLeft: 28,
-        marginTop: 10,
-        marginBottom: -60
+        width: 390,
+        height: 200, 
+        marginLeft: 10,
+        marginTop: 50,
+        marginBottom: -10,  
     },
+
     ImgTexto: {
         width: 100,
         height: 100, 
         marginLeft: 31,
         marginTop: -10
     },
-
 
     titulo: {
         color: 'white',
@@ -61,6 +61,7 @@ const styles = StyleSheet.create({
         fontSize: 20
         
     },
+
     texto: {
         fontSize: 22,
         color: '#744D8C',
@@ -70,6 +71,7 @@ const styles = StyleSheet.create({
         marginTop: 50,
         marginBottom: -10
     },
+
     textoCad: {
         fontSize: 20,
         color: 'white',
@@ -77,11 +79,13 @@ const styles = StyleSheet.create({
         marginTop: 150,
         marginBottom: -60
     },  
+
     textobtn: {
         fontSize: 20,
         color: 'white',
         textAlign: 'center'
     },
+
     btn: {
         backgroundColor: '#F09F09',
         width: '90%',
@@ -93,6 +97,20 @@ const styles = StyleSheet.create({
         borderRadius: 8,
         fontSize: 20
     },
+
+    appbar: {
+        backgroundColor: '#744D8C',
+    },
+
+    texto2: {
+        fontSize: 25,
+        color: '#F09F09',
+        textAlign: 'center',
+        marginLeft: 25,
+        marginRight: 25,
+        marginTop: 50,
+        marginBottom: -10
+    }  
 })
 
 export default styles;
