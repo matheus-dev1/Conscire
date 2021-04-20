@@ -103,7 +103,6 @@ As seguintes ferramentas foram usadas na construção do projeto:
 </table>
 
 <h2 id="autores">Autores</h2>
----
 
 <table>
   <tr>
