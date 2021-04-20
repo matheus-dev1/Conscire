@@ -86,3 +86,15 @@ As seguintes ferramentas foram usadas na construção do projeto:
 - [Google Charts](https://developers.google.com/chart)
 - [Expo](https://expo.io/)
 - [React Native](https://reactnative.dev/)
+
+
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/matheus-dev1"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/57534542?s=400&u=5a28337eff3323bfcc27e9d08740ed2da263e57a&v=4" width="100px;" alt="Matheus de Oliveira Silva"/><br /><sub><b>Matheus de Oliveira Silva</b></sub></a><br /><a href="https://rocketseat.com.br/" title="Conscire">👨‍🚀</a>
+    </td>
+    <td align="center">Sabrina</td>
+    <td align="center">Gabriel Xavier de Oliveira</td>
+    <td align="center">Inês Souza</td>
+    <td align="center">Nathalie</td>
+  </tr>
+</table>
