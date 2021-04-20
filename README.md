@@ -22,7 +22,7 @@
   <a href="#autores">Autores</a> •
 </p>
 
-<h2 id="status-projeto">Versao 1 do projeto finalizada</h2>
+<h2 id="status-projeto">Versão 1.0.0 do projeto finalizada</h2>
 <p>A primeira versao foi finalizada no final de fevereiro de 2021.</p>
 
 <h2 id="features">Features</h2>
