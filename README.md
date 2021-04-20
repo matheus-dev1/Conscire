@@ -17,9 +17,10 @@
   <a href="#features">Features</a> 
 </p>
 
-<h2 id="status-projeto" align="center">Versao 1 do projeto finalizada</h2>
+<h2 id="status-projeto">Versao 1 do projeto finalizada</h2>
+<p>A primeira versao foi finalizada no final de fevereiro.</p>
 
-<h2 id="features" align="center">Features</h2>
+<h2 id="features">Features</h2>
 
 - [x] Cadastro de Usuarios
 - [x] Teste Audit
