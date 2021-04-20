@@ -13,42 +13,8 @@
 <img src="https://img.shields.io/static/v1?label=Sistema&message=Conscire&color=6e418b&style=for-the-badge&logo=ghost"/>
 
 <p align="center">
-  <a href="#teste-teste">Teste</a> •
+  <a href="#status-projeto">Status do Projeto</a> •
 </p>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## :teste: **Teste**
+<h1 id="status-projeto" align="center">Versao 1 do projeto finalizada</h1>
