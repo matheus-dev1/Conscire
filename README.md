@@ -18,7 +18,7 @@
 </p>
 
 <h2 id="status-projeto">Versao 1 do projeto finalizada</h2>
-<p>A primeira versao foi finalizada no final de fevereiro.</p>
+<p>A primeira versao foi finalizada no final de fevereiro de 2021.</p>
 
 <h2 id="features">Features</h2>
 
@@ -30,3 +30,7 @@
 - [x] Fazer comentario
 - [x] Monitoramento com Google Chart
 - [x] Hospedagem Frontend e Backend no Heroku
+
+<div align="center">
+  <img src="frontend/src/assets/images/logo.png" alt="Logo Conscire"/>
+</div>
