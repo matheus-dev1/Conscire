@@ -14,7 +14,8 @@
 
 <p align="center">
   <a href="#status-projeto">Status do Projeto</a> •
-  <a href="#features">Features</a> 
+  <a href="#features">Features</a> •
+   <a href="#demonstracao">Demonstração da aplicação</a> •
 </p>
 
 <h2 id="status-projeto">Versao 1 do projeto finalizada</h2>
@@ -31,6 +32,10 @@
 - [x] Monitoramento com Google Chart
 - [x] Hospedagem Frontend e Backend no Heroku
 
-<div align="center">
-  <img src="frontend/src/assets/images/logo.png" alt="Logo Conscire"/>
-</div>
+<h2 id="demonstracao">Demonstração da aplicação</h2>
+
+<p>Tela de Cadastro</p>
+<img src="frontend/src/assets/images/cadastro.png" alt="Screenshot da tela de Cadastro do Conscire"/>
+
+<p>Tela de Login</p>
+<img src="frontend/src/assets/images/login.png" alt="Scerenshot da tela de Login do Conscire"/>
