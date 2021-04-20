@@ -17,6 +17,7 @@
   <a href="#features">Features</a> •
   <a href="#demonstracao">Demonstração da aplicação</a> •
   <a href="#pre-requisitos">Pré-requisitos</a> •
+  <a href="#tecnologias">Tecnologias</a> •
 </p>
 
 <h2 id="status-projeto">Versao 1 do projeto finalizada</h2>
@@ -75,3 +76,13 @@ $ npm start
 
 # O servidor inciará na porta:3333 - acesse <http://localhost:3333>
 ```
+<h1 id="tecnologias">Tecnologias</h1>
+
+As seguintes ferramentas foram usadas na construção do projeto:
+
+- [Node.js](https://nodejs.org/en/)
+- [React](https://pt-br.reactjs.org/)
+- [MySQL](https://www.mysql.com/)
+- [Google Charts](https://developers.google.com/chart)
+- [Expo](https://expo.io/)
+- [React Native](https://reactnative.dev/)
