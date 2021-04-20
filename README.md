@@ -11,3 +11,44 @@
 <img src="https://img.shields.io/apm/l/react?color=6e418b&style=for-the-badge"/>
 
 <img src="https://img.shields.io/static/v1?label=Sistema&message=Conscire&color=6e418b&style=for-the-badge&logo=ghost"/>
+
+<p align="center">
+  <a href="#teste-teste">Teste</a> •
+</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## :teste: **Teste**
