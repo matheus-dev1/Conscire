@@ -14,7 +14,17 @@
 
 <p align="center">
   <a href="#status-projeto">Status do Projeto</a> •
+  <a href="#features">Features</a> 
 </p>
 
+<h2 id="status-projeto" align="center">Versao 1 do projeto finalizada</h2>
 
-<h1 id="status-projeto" align="center">Versao 1 do projeto finalizada</h1>
+<h2 id="features" align="center">Features</h2>
+- [x] Cadastro de Usuarios
+- [x] Teste Audit
+- [x] Resultado Teste Audit
+- [x] Quiz
+- [x] Deletar usuario
+- [x] Fazer comentario
+- [x] Monitoramento com Google Chart
+- [x] Hospedagem Frontend e Backend no Heroku
