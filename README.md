@@ -18,6 +18,7 @@
   <a href="#demonstracao">Demonstração da aplicação</a> •
   <a href="#pre-requisitos">Pré-requisitos</a> •
   <a href="#tecnologias">Tecnologias</a> •
+  <a href="#contribuicao">Contribuição</a> •
 </p>
 
 <h2 id="status-projeto">Versao 1 do projeto finalizada</h2>
@@ -76,7 +77,7 @@ $ npm start
 
 # O servidor inciará na porta:3333 - acesse <http://localhost:3333>
 ```
-<h1 id="tecnologias">Tecnologias</h1>
+<h2 id="tecnologias">Tecnologias</h2>
 
 As seguintes ferramentas foram usadas na construção do projeto:
 
@@ -87,6 +88,7 @@ As seguintes ferramentas foram usadas na construção do projeto:
 - [Expo](https://expo.io/)
 - [React Native](https://reactnative.dev/)
 
+<h2 id=contribuicao>Contribuição</h2>
 
 <table>
   <tr>
