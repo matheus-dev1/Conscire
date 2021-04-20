@@ -15,7 +15,8 @@
 <p align="center">
   <a href="#status-projeto">Status do Projeto</a> •
   <a href="#features">Features</a> •
-   <a href="#demonstracao">Demonstração da aplicação</a> •
+  <a href="#demonstracao">Demonstração da aplicação</a> •
+  <a href="#pre-requisitos">Pré-requisitos</a> •
 </p>
 
 <h2 id="status-projeto">Versao 1 do projeto finalizada</h2>
@@ -39,3 +40,38 @@
 
 <p>Tela de Login</p>
 <img src="frontend/src/assets/images/login.png" alt="Scerenshot da tela de Login do Conscire"/>
+
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+
+Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
+[Git](https://git-scm.com), [Node.js](https://nodejs.org/en/).
+Além disto é bom ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/)
+
+<h2>Rodando o Front e Back End</h2>
+
+```bash
+# Clone este repositório
+$ git clone <https://github.com/matheus-dev1/Conscire.git>
+
+# Abra dois terminais
+
+# No primeiro terminal acesse a pasta do projeto frontend
+$ cd /frontend
+
+# No segundo terminal acesse a pasta do projeto backend
+$ cd /backend
+
+# No primeiro terminal dentro da pasta instale as dependencias frontend
+$ npm install
+
+# No segundo terminal dentro da pasta instale as dependencias backend
+$ npm install
+
+# Execute a aplicação frontend
+$ npm start
+
+# Execute a aplicação backend
+$ npm start
+
+# O servidor inciará na porta:3333 - acesse <http://localhost:3333>
+```
