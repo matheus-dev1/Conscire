@@ -113,3 +113,8 @@ As seguintes ferramentas foram usadas na construção do projeto:
     <td align="center">Nathalie</td>
   </tr>
 </table>
+
+<h2 id=license>Licença</h2>
+<p>
+  <a href="https://github.com/matheus-dev1/Conscire/blob/main/LICENSE/">MIT Licence</a>
+</p>
